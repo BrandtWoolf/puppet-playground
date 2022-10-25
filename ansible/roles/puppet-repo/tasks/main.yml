@@ -1,0 +1,5 @@
+---
+
+- name:
+  apt:
+    deb: http://apt.puppet.com/puppet7-release-focal.deb

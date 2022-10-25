@@ -1,0 +1,27 @@
+---
+
+- name: install puppetserver
+  apt:
+    name: puppetserver
+    update_cache: yes
+    state: present
+
+- name: Allow ports needed for pupperserver
+  ufw:
+    rule: allow
+    port: 8140
+    proto: any
+
+- name: install puppetdb module
+  command: /opt/puppetlabs/bin/puppet module install puppetlabs-puppetdb --version 7.10.0
+
+- name: copy site manifest
+  copy:
+    src: site.pp
+    dest: /etc/puppetlabs/code/environments/production/manifests/site.pp
+
+- name: start puppetserver
+  service:
+    name: puppetserver
+    state: started
+    enabled: yes

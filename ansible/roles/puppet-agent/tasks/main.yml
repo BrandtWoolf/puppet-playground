@@ -1,0 +1,20 @@
+---
+
+- name: install puppet agent
+  apt:
+    name: puppet-agent
+    state: present
+    update_cache: yes
+
+- name: join puppet agent to server
+  command: sudo /opt/puppetlabs/bin/puppet config set server puppetserver.puppet-playground.com --section main
+
+# TODO
+#- name: run the puppet ssl bootstrap
+#  command: sudo /opt/puppetlabs/bin/puppet ssl bootstrap
+
+#- name: start and enable puppet agent
+#  service:
+#    name: puppet
+#    enabled: yes
+#    state: started

@@ -1,0 +1,31 @@
+---
+
+- name: install bind9
+  apt:
+    name: bind9
+    state: present
+
+- name: enable bind9
+  service:
+    name: bind9
+    enabled: yes
+
+- name: allow dns through firewall
+  ufw:
+    rule: allow
+    name: Bind9    
+
+- name: copy custom config
+  copy:
+    src: "{{ item }}"
+    dest: "/etc/bind/{{ item }}"
+    owner: root
+    group: bind
+    mode: 0644
+  loop: 
+    - named.conf.options
+    - named.conf.local
+    - db.puppet-playground.com
+    - db.192
+  notify: restart bind9
+

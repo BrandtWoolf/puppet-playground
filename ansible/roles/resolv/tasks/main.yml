@@ -1,0 +1,6 @@
+---
+
+- name: copy custom resolv.conf
+  copy:
+    src: resolv.conf
+    dest: /run/systemd/resolve/stub-resolv.conf

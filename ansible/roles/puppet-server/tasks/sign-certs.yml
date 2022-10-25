@@ -1,0 +1,4 @@
+---
+
+- name: sign the pending certs
+  command: /opt/puppetlabs/bin/puppetserver ca sign --all

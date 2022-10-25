@@ -1,0 +1,11 @@
+zone "puppet-playground.com" {
+        type master;
+        file "/etc/bind/db.puppet-playground.com";
+        notify no;
+};
+
+zone "4.168.192.in-addr.arpa" {
+    type master;
+    file "/etc/bind/db.192";
+    notify no;
+};

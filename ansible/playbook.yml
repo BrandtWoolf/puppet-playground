@@ -1,0 +1,27 @@
+- hosts: all:!puppetdns
+  become: yes
+  roles: 
+    - resolv
+    - puppet-repo
+    - ufw
+
+- hosts: puppetdns
+  become: yes
+  roles:
+    - bind9
+  
+- hosts: puppetserver
+  become: yes
+  roles:
+    - puppet-server
+    - puppet-agent
+
+- hosts: puppetdb
+  become: yes
+  roles:
+    - puppetdb
+
+- hosts: puppetdb, postgres
+  become: yes
+  roles:
+    - puppet-agent    

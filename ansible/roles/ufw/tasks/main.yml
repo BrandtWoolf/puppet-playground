@@ -1,0 +1,10 @@
+---
+
+- name: Allow ssh 
+  ufw:
+    rule: allow
+    port: ssh
+
+- name: Enable ufw
+  ufw:
+    state: disabled #enabled   

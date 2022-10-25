@@ -1,0 +1,13 @@
+$TTL    604800
+@       IN      SOA     puppetdns.puppet-playground.com. admin.puppet-playground.com. (
+                              2         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@   IN      NS  puppetdns.
+9   IN      PTR puppetdns.puppet-playgroud.com.
+10  IN      PTR puppetserver.puppet-playgroud.com.
+11  IN      PTR puppetdb.puppet-playgroud.com.
+12  IN      PTR postgres.puppet-playgroud.com.

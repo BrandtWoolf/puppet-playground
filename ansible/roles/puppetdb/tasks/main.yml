@@ -1,0 +1,10 @@
+---
+
+- name: Allow ports needed for pupperserver
+  ufw:
+    rule: allow
+    port: "{{ item }}"
+    proto: any
+  loop:
+    - 8081
+    - 8080
